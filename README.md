@@ -1,16 +1,14 @@
-# outfits
+# Outfits
 
-A new Flutter project.
+Generate, preview and save outfits with custom saved wardrobe.
+Pet project to learn Flutter. Made with Flutter, Material design and Firebase. Yes, sold my soul to Google.
 
-## Getting Started
+## How to run
 
-This project is a starting point for a Flutter application.
+Clone and use the provided Makefile run script
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+git clone https://www.github.com/brainsaysno/outfits.git
+cd outfits
+make
+```
