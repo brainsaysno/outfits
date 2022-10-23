@@ -4,14 +4,14 @@ import 'package:outfits/Models/clothing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
-class AddClothing extends StatefulWidget {
-  const AddClothing({super.key});
+class AddClothingScreen extends StatefulWidget {
+  const AddClothingScreen({super.key});
 
   @override
-  State<AddClothing> createState() => _AddClothingState();
+  State<AddClothingScreen> createState() => _AddClothingScreenState();
 }
 
-class _AddClothingState extends State<AddClothing> {
+class _AddClothingScreenState extends State<AddClothingScreen> {
   int _index = 0;
   String _currentName = "";
   ClothingType _currentClothingType = ClothingType.top;
@@ -64,7 +64,7 @@ class _AddClothingState extends State<AddClothing> {
   void submitClothing() {
     Clothing newClothing =
         Clothing(_currentName, _currentClothingType, _currentColor);
-    Clothing.clothingRef.add(newClothing);
+    Clothing.ref.add(newClothing);
     Navigator.of(context).pop();
   }
 

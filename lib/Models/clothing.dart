@@ -29,7 +29,7 @@ class Clothing {
     };
   }
 
-  static final clothingRef = FirebaseFirestore.instance
+  static final ref = FirebaseFirestore.instance
       .collection('clothing')
       .withConverter<Clothing>(
           fromFirestore: ((snapshot, options) =>
