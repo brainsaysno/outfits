@@ -10,7 +10,7 @@ class Outfit {
 
   const Outfit(this.name, this.top, this.bottom);
 
-  Outfit.fromJson(dynamic json)
+  Outfit.fromJson(Map<String, dynamic> json)
       : this(
           json['name']! as String,
           Clothing.fromJson(json['top']!),
@@ -22,9 +22,10 @@ class Outfit {
   }
 
   static final ref = FirebaseFirestore.instance
-      .collection('outfits')
-      .withConverter<Outfit>(
-          fromFirestore: ((snapshot, options) =>
-              Outfit.fromJson(snapshot.data()!)),
-          toFirestore: ((clothing, options) => clothing.toJson()));
+      .collection('outfits'); // .withConverter<Outfit>(
+  // fromFirestore: ((snapshot, options) {
+  //   print(snapshot.data()!);
+  //   return Outfit.fromJson(snapshot.data()!);
+  // }),
+  // toFirestore: ((outfit, options) => outfit.toJson()));
 }

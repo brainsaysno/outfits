@@ -15,10 +15,10 @@ class _OutfitListScreenState extends State<OutfitListScreen> {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.all(8.0),
-        child: StreamBuilder<QuerySnapshot<Outfit>>(
+        child: StreamBuilder<QuerySnapshot<Map>>(
             stream: Outfit.ref.snapshots(),
             builder: (BuildContext context,
-                AsyncSnapshot<QuerySnapshot<Outfit>> snapshot) {
+                AsyncSnapshot<QuerySnapshot<Map>> snapshot) {
               Widget child = const Text("");
               if (snapshot.connectionState == ConnectionState.waiting) {
                 child = const Center(child: Text("Loading..."));
@@ -33,11 +33,10 @@ class _OutfitListScreenState extends State<OutfitListScreen> {
                     child: ListView.builder(
                       itemCount: data.size,
                       itemBuilder: (context, index) {
-                        final outfit = data.docs[index].data();
+                        final DocumentReference<Map<String, dynamic>> outfit =
+                            data.docs[index].data()['bottom'];
                         // return ListTile(title: Text(c.name), trailing: svg);
-                        return OutfitListItem(
-                          outfit: outfit,
-                        );
+                        return Text(outfit.get().toString());
                       },
                     ));
               }

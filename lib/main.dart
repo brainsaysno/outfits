@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Clothing App',
+      title: 'Outfits App',
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Clothing app"),
+        title: const Text("Outfits app"),
       ),
       body: _screens.elementAt(_selectedIndex),
       floatingActionButton: FloatingActionButton(
