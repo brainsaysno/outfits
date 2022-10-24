@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 @immutable
 class Clothing {
@@ -29,6 +30,15 @@ class Clothing {
     };
   }
 
+  SvgPicture getSvg(double size) {
+    final String graphicName = 'graphics/${type.getName()}.svg';
+
+    final SvgPicture svg =
+        SvgPicture.asset(graphicName, color: color, height: size);
+
+    return svg;
+  } 
+
   static final ref = FirebaseFirestore.instance
       .collection('clothing')
       .withConverter<Clothing>(
@@ -37,7 +47,7 @@ class Clothing {
           toFirestore: ((clothing, options) => clothing.toJson()));
 }
 
-enum ClothingType { top, bottom }
+enum ClothingType { headwear, top, bottom }
 
 extension ClothingTypeExtension on ClothingType {
   String getName() {

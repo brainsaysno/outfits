@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:outfits/Models/clothing.dart';
 
 class ClothingGridItem extends StatelessWidget {
-  const ClothingGridItem({super.key, required this.clothing});
+  const ClothingGridItem(
+      {super.key, required this.clothing, this.size = 50.0, this.onTap});
+  final Function(Clothing)? onTap;
+  final double size;
 
   final Clothing clothing;
 
   @override
   Widget build(BuildContext context) {
-    final String graphicName = 'graphics/${clothing.type.getName()}.svg';
-
-    final Widget svg =
-        SvgPicture.asset(graphicName, color: clothing.color, height: 50);
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        svg,
-        Text(
-          clothing.name,
-          textAlign: TextAlign.center,
-        )
-      ],
-    );
+    return GestureDetector(
+        onTap: () => onTap?.call(clothing),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            clothing.getSvg(size),
+            Text(clothing.name, textAlign: TextAlign.center, style: TextStyle(fontSize: size/3.5))
+          ],
+        ));
   }
 }

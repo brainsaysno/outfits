@@ -1,4 +1,5 @@
 import 'package:outfits/Screens/add_clothing_screen.dart';
+import 'package:outfits/Screens/add_outfit_screen.dart';
 import 'package:outfits/Screens/outfit_list_screen.dart';
 import 'package:outfits/Screens/wardrobe_screen.dart';
 import 'package:flutter/material.dart';
@@ -53,9 +54,15 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             Navigator.push(
                 context,
+            _selectedIndex == 0 ? 
                 MaterialPageRoute(
                     builder: (ctx) => const AddClothingScreen(),
-                    settings: const RouteSettings(name: '/add_clothing')));
+                    settings: const RouteSettings(name: '/add_clothing'))
+: 
+                MaterialPageRoute(
+                    builder: (ctx) => const AddOutfitScreen(),
+                    settings: const RouteSettings(name: '/add_outfit'))
+  );
           },
           child: const Icon(Icons.add)),
       bottomNavigationBar: BottomNavigationBar(
